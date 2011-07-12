@@ -10,3 +10,4 @@
         <p>You're not allowed to access this page.</p>
     </div>
 </body>
+</html>

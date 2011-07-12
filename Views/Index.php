@@ -11,3 +11,4 @@
         <p>It is free software and released under the <a href="http://www.opensource.org/licenses/bsd-license.php">BSD license</a>.</p>
     </div>
 </body>
+</html>

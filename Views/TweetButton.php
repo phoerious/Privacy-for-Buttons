@@ -31,4 +31,5 @@
             </span>
         </span>
     <?php if (!$this->buttonOnly) { ?></div>
-</body><?php } ?>
+</body>
+</html><?php } ?>
