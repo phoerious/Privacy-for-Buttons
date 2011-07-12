@@ -1,6 +1,9 @@
 # Local config
 config.local.php
 
+# Cache files
+Cache/*
+
 # Komodo project files
 *.komodoproject
 
