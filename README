@@ -46,7 +46,7 @@ instance of 'Pfb_API_SocialMediaButtons'.
 This will return a button factory instance, which you can use to create your button.
 E.g. to create a Tweet button for <http://www.example.com/> run
 
-$tweetButton = $buttonFactory->getButton('TweetButton', 'http://www.examle.com/');
+$tweetButton = $buttonFactory->getButton('TweetButton', 'http://www.example.com/');
 
 Now to get the actual button code call $tweetButton->getButtonCode(). This will
 return the HTML code for this button. $tweetButton->getButtonCSS() will return
