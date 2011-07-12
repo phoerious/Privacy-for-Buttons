@@ -1,0 +1,61 @@
+Privacy for Buttons v0.1
+========================
+
+--------------------------------------------------------------------------------------
+| NOTE: This application is still in a very early state and under heavy development. |
+| It is not meant for productive use yet.                                            |
+--------------------------------------------------------------------------------------
+
+Privacy for Buttons helps you to protect your visitor's privacy providing
+full-featured social media buttons without third-party tracking.
+
+It is free software and released under the BSD license.
+See <http://www.opensource.org/licenses/bsd-license.php> for more details.
+
+WARNING: this application is able to fetch original background images from the
+social media providers. You may only do this at your own risk and responsibility!
+Depending on your country, this might infringe copyright laws. If you're unsure,
+better create your own!
+
+
+Usage:
+======
+Privacy for Buttons let's you either include the buttons via Web API for use in
+Iframes or via a server-side PHP API. It's your own decision, which method you
+prefer, but if you have the technical knowledge, we advise you to use the latter
+since it reduces your bandwidth usage and makes the site faster for your visitors.
+
+For the Web API, call the front controller by specifying the button command name.
+For example:
+
+http://www.example.com/privacyforbuttons/?c=Tweetbutton&url=http://...
+
+This would call the Tweet button, provided that the public application path is
+'/privacyforbuttons/'. Several buttons might require more parameters. E.g. the
+Tweet button also requires and 'url' parameter, which specifies the URL you want
+the button to create for. More parameters are possible for further customization.
+For more details about parameters and how to use particular buttons, read their
+documentation.
+
+For the server-side PHP API include 'API/SocialMediaButtons.php' and create a new
+instance of 'Pfb_API_SocialMediaButtons'.
+This will return a button factory instance, which you can use to create your button.
+E.g. to create a Tweet button for <http://www.example.com/> run
+
+$tweetButton = $buttonFactory->getButton('TweetButton', 'http://www.examle.com/');
+
+Now to get the actual button code call $tweetButton->getButtonCode(). This will
+return the HTML code for this button. $tweetButton->getButtonCSS() will return
+the default CSS for it. Note that you need to set the PUBLIC application path
+first if you use the default CSS. You can to this by calling:
+
+Pfb_Config::setConfig('publicApplicationPath', '/public/application/path');
+
+The public application path is the path, which the user sees in his browser's
+address bar.
+You can customize your Tweet button by setting further parameters with
+$tweetButton->setParam(). For more details about this, read the documentation of
+the particular button.
+
+More than one button on a page is possible, also with different configuration.
+Only make sure you don't include the CSS more than once.

@@ -1,0 +1,24 @@
+# Local config
+config.local.php
+
+# Komodo project files
+*.komodoproject
+
+# vim swap files
+*.swp
+
+# Packed files
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
+
+# OS files
+.directory
+.DS_Store
+desktop.ini
+Thumbs.db
