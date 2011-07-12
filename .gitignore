@@ -6,6 +6,7 @@ Cache/*
 
 # Komodo project files
 *.komodoproject
+.komodotools
 
 # vim swap files
 *.swp

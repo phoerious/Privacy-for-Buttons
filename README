@@ -25,8 +25,12 @@ Iframes or via a server-side PHP API. It's your own decision, which method you
 prefer, but if you have the technical knowledge, we advise you to use the latter
 since it reduces your bandwidth usage and makes the site faster for your visitors.
 
-For the Web API, call the front controller by specifying the button command name.
-For example:
+Usage of Privacy for Buttons is relatively simple. First of all make sure, the
+web server can write to the 'Cache' directory. In this directory all HTTP
+requests done by the application are cached.
+
+For use of the Web API, call the front controller by specifying the button
+command name. For example:
 
 http://www.example.com/privacyforbuttons/?c=Tweetbutton&url=http://...
 
@@ -59,3 +63,8 @@ the particular button.
 
 More than one button on a page is possible, also with different configuration.
 Only make sure you don't include the CSS more than once.
+
+Global application configuration is done in 'config.php'. However, to alter the
+configuration, DON'T modify this file. It will be overwritten at the next update.
+Instead create a file config.local.php and write your configuration there.
+This wil override the default settings.
