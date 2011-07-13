@@ -175,7 +175,7 @@ class Pfb_Models_TweetButtonModel implements Pfb_Interfaces_Model
      * We respect Twitter and therefore we don't want to flood their website.
      *
      * NOTE: Tokens seem to be always the same. Therefore this method currently
-     * returns static values and doesn't actually fetch anything from Twitter.
+     * sets static values and doesn't actually fetch anything from Twitter.
      *
      * @author Janek Bevendorff
      * @since 0.1

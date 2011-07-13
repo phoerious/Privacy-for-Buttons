@@ -13,7 +13,7 @@ html,body,div {margin: 0;padding: 0;}
     <?php if ($this->type == 'tall' || $this->type == 'medium' || $this->type == 'standard') { ?>
         <span class="pfb-plusOneButton-counter"><?php print $this->count; ?></span>
     <?php } ?>
-        <a class="pfb-plusOneButton-button" href="https://twitter.com/share?original_referer=<?php print rawurlencode($this->url); ?>&amp;source=plusOneButton&amp;text=Testpage&amp;url=<?php print rawurlencode($this->url); ?>">
+        <a<?php if (!$this->buttonOnly) { ?> target="_top"<?php } ?> class="pfb-plusOneButton-button" href="https://twitter.com/share?original_referer=<?php print rawurlencode($this->url); ?>&amp;source=plusOneButton&amp;text=Testpage&amp;url=<?php print rawurlencode($this->url); ?>">
             <span>+1</span>
         </a>
     </span>

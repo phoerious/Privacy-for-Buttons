@@ -12,11 +12,11 @@ html,body,div {margin: 0;padding: 0;}
     <span class="pfb-tweetButton pfb-<?php print $this->type; ?>" lang="<?php print $this->lang; ?>">
     <?php if ($this->type == 'vertical' || $this->type == 'horizontal') { ?>
         <span class="pfb-tweetButton-counter">
-            <a href="http://twitter.com/search?q=<?php print rawurlencode($this->url); ?>"><?php print $this->count; ?></a>
+            <a<?php if (!$this->buttonOnly) { ?> target="_top"<?php } ?> href="http://twitter.com/search?q=<?php print rawurlencode($this->url); ?>"><?php print $this->count; ?></a>
         </span>
     <?php } ?>
         <span class="pfb-tweetButton-button">
-            <a href="https://twitter.com/share?original_referer=<?php print rawurlencode($this->url); ?>&amp;source=tweetbutton&amp;text=Testpage&amp;url=<?php print rawurlencode($this->url); ?>">
+            <a<?php if (!$this->buttonOnly) { ?> target="_top"<?php } ?> href="https://twitter.com/share?original_referer=<?php print rawurlencode($this->url); ?>&amp;source=tweetbutton&amp;text=Testpage&amp;url=<?php print rawurlencode($this->url); ?>">
                 <span><?php print $this->locales['tweet']; ?></span>
             </a>
             <script type="text/javascript">
