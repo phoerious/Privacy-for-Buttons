@@ -9,8 +9,8 @@ html,body,div {margin: 0;padding: 0;}
 </style>
 <body>
 <div><?php } ?>
-    <span class="pfb-plusOneButton pfb-<?php print $this->countAlign; ?>" lang="<?php print $this->lang; ?>">
-    <?php if ($this->countAlign == 'tall' || $this->countAlign == 'medium' || $this->countAlign == 'standard') { ?>
+    <span class="pfb-plusOneButton pfb-<?php print $this->type; ?>" lang="<?php print $this->lang; ?>">
+    <?php if ($this->type == 'tall' || $this->type == 'medium' || $this->type == 'standard') { ?>
         <span class="pfb-plusOneButton-counter"><?php print $this->count; ?></span>
     <?php } ?>
         <a class="pfb-plusOneButton-button" href="https://twitter.com/share?original_referer=<?php print rawurlencode($this->url); ?>&amp;source=plusOneButton&amp;text=Testpage&amp;url=<?php print rawurlencode($this->url); ?>">

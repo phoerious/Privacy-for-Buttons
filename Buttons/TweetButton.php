@@ -16,7 +16,7 @@ class Pfb_Buttons_TweetButton implements Pfb_Interfaces_Button
         // URL for the button
         'url' => null,
         // Button layout
-        'countAlign' => 'vertical',
+        'type' => 'vertical',
         // Button language
         'lang' => 'en'
     );
@@ -74,7 +74,7 @@ class Pfb_Buttons_TweetButton implements Pfb_Interfaces_Button
         $view = new Pfb_FrontController_TemplateView('TweetButton');
         $view->assignVar('url', $this->params['url']);
         $view->assignVar('lang', $this->params['lang']);
-        $view->assignVar('countAlign', $this->params['countAlign']);
+        $view->assignVar('type', $this->params['type']);
         $view->assignVar('count', $this->model->getCounter());
         $view->assignVar('locales', $this->model->getLocales($this->params['lang']));
         $view->assignVar('buttonOnly', true);
@@ -94,7 +94,7 @@ class Pfb_Buttons_TweetButton implements Pfb_Interfaces_Button
         $view = new Pfb_FrontController_TemplateView('TweetButtonCSS');
         $view->assignVar('path', Pfb_Config::getConfig('publicApplicationPath'));
         $view->assignVar('url', $this->params['url']);
-        $view->assignVar('countAlign', $this->params['countAlign']);
+        $view->assignVar('type', $this->params['type']);
         
         return $view->render();
     }

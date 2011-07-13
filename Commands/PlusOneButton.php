@@ -97,10 +97,10 @@ class Pfb_Commands_PlusOneButton implements Pfb_Interfaces_Command
         $view->assignVar('lang', $this->lang);
         $view->assignVar('path', $this->request->getPath());
         
-        if (in_array($this->request->getParam('countalign'), array('tall', 'medium', 'standard', 'small'))) {
-            $view->assignVar('countAlign', $this->request->getParam('countalign'));
+        if (in_array($this->request->getParam('type'), array('tall', 'medium', 'standard', 'small'))) {
+            $view->assignVar('type', $this->request->getParam('type'));
         } else {
-            $view->assignVar('countAlign', 'small');
+            $view->assignVar('type', 'small');
         }
         
         $view->display($this->request, $this->response);

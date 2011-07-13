@@ -97,10 +97,10 @@ class Pfb_Commands_TweetButton implements Pfb_Interfaces_Command
         $view->assignVar('lang', $this->lang);
         $view->assignVar('path', $this->request->getPath());
         
-        if (in_array($this->request->getParam('countalign'), array('vertical', 'horizontal', 'none'))) {
-            $view->assignVar('countAlign', $this->request->getParam('countalign'));
+        if (in_array($this->request->getParam('type'), array('vertical', 'horizontal', 'none'))) {
+            $view->assignVar('type', $this->request->getParam('type'));
         } else {
-            $view->assignVar('countAlign', 'none');
+            $view->assignVar('type', 'none');
         }
         
         $view->display($this->request, $this->response);

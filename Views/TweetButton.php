@@ -9,8 +9,8 @@ html,body,div {margin: 0;padding: 0;}
 </style>
 <body>
 <div><?php } ?>
-    <span class="pfb-tweetButton pfb-<?php print $this->countAlign; ?>" lang="<?php print $this->lang; ?>">
-    <?php if ($this->countAlign == 'vertical' || $this->countAlign == 'horizontal') { ?>
+    <span class="pfb-tweetButton pfb-<?php print $this->type; ?>" lang="<?php print $this->lang; ?>">
+    <?php if ($this->type == 'vertical' || $this->type == 'horizontal') { ?>
         <span class="pfb-tweetButton-counter">
             <a href="http://twitter.com/search?q=<?php print rawurlencode($this->url); ?>"><?php print $this->count; ?></a>
         </span>
