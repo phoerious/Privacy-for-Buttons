@@ -18,6 +18,34 @@ Depending on your country, this might infringe copyright laws. If you're unsure,
 better create your own!
 
 
+So why Privacy for Buttons?
+===========================
+There are several reason why you should use Privacy for Buttons:
+
+ * It's secure:
+   Privacy for Buttons only runs on your own server. Therefore no third-party
+   tracking of your users is possible.
+   Because of this approach you also don't have problems with SSL secured websites.
+   The original social media buttons often don't play well with encrypted connections.
+ * It's fast:
+   Unless you use the Iframe Web API, Privacy for Buttons only requests third party
+   websites on server-side, no client-side requests have to be done. Additionally,
+   all these requests are cached on the server for a specified amount of time.
+   But also if you use the Web API, most buttons create fewer requests than
+   their originals.
+ * It's small:
+   Not only does Privacy for Buttons reduce the number of requests, it also
+   reduces the amount of data being transferred. Many buttons are about half the size
+   of the original ones. This also speeds up connections and gives your visitors
+   a better user experience.
+ * It's flexible:
+   Privacy for Buttons is designed to be easily extensible. Besides a Web and
+   server-side API for all bundled buttons, you can also extend this
+   application with your own set of buttons without having to modify any existing
+   code. Just write the additional classes and put them in place. They will be
+   hooked in automatically.
+
+
 Usage:
 ======
 Privacy for Buttons let's you either include the buttons via Web API for use in
