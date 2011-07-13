@@ -1,6 +1,6 @@
 <?php
 // static main configuration
-define('PFB_CONFIG_APP_VERSION', '0.1');
+define('PFB_CONFIG_APP_VERSION', '0.2');
 define('PFB_CONFIG_APP_PATH', __DIR__);
 
 // Dynamic runtime configuration. Don't change values here, use config.local.php instead.
@@ -11,6 +11,10 @@ Pfb_Config::setConfig(array(
     
     // User-agent string that is used for requesting HTTP APIs
     'defaultRequestUserAgent' => 'Mozilla/5.0 (X11; Linux x86_64; rv:2.0.1) Gecko/20100101 Firefox/4.0.1',
+    
+    // Version of the HTTP protocol used for requesting HTTP APIs.
+    // This is either 1.0 or 1.1.
+    'requestProtocolVersion' => '1.1',
     
     // How long (in seconds) HTTP Requests will be cached
     // Zero disables caching (not recommended, only use for testing!).

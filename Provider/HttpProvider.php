@@ -27,12 +27,6 @@ class Pfb_Provider_HttpProvider implements Pfb_Interfaces_Provider
     private $cacheTime;
     
     /**
-     * @since 0.1
-     * @var string
-     */
-    private $httpProtocolVersion = '1.1';
-    
-    /**
      * Constructor.
      * If $cacheTime is null, the global default setting will be used.
      *
@@ -91,16 +85,35 @@ class Pfb_Provider_HttpProvider implements Pfb_Interfaces_Provider
     }
     
     /**
+     * Set request body.
+     *
+     * @author Janek Bevendorff
+     * @since 0.2
+     * 
+     * @param string $body
+     * @return void
+     */
+    public function setBody($body) {
+        $this->requestObject->setBody($body);
+    }
+    
+    /**
      * Send request and return response object.
      *
      * @author Janek Bevendorff
      * @since 0.1
      * 
      * @param string $requestMethod
-     * @return Interfaces_ProviderObject
+     * @return Pfb_Interfaces_ProviderObject
      */
     public function requestObject($requestMethod) {
-        $cacheFilename = PFB_CONFIG_APP_PATH . '/Cache/' . sha1($this->sourceUrl);
+        $hashContent = $this->sourceUrl;
+        if ($this->requestObject->getBody()) {
+            $hashContent .= $this->requestObject->getBody();
+        }
+        $idHash = sha1($hashContent);
+        
+        $cacheFilename = PFB_CONFIG_APP_PATH . '/Cache/' . $idHash;
         
         if (file_exists($cacheFilename) && (time() - filemtime($cacheFilename)) <= $this->cacheTime) {
             return unserialize(file_get_contents($cacheFilename));
@@ -108,7 +121,7 @@ class Pfb_Provider_HttpProvider implements Pfb_Interfaces_Provider
         
         $this->requestObject->setUrl($this->sourceUrl);
         $this->requestObject->setMethod($requestMethod);
-        $this->requestObject->setConfig('protocol_version', $this->httpProtocolVersion);
+        $this->requestObject->setConfig('protocol_version', Pfb_Config::getConfig('requestProtocolVersion'));
         
         $response = $this->requestObject->send();
         
@@ -117,7 +130,7 @@ class Pfb_Provider_HttpProvider implements Pfb_Interfaces_Provider
         // cache contents
         if ($this->cacheTime > 0) {
             $cacheObj = serialize($responseObj);
-            file_put_contents(PFB_CONFIG_APP_PATH . '/Cache/' . sha1($this->sourceUrl), $cacheObj, LOCK_EX);
+            file_put_contents($cacheFilename, $cacheObj, LOCK_EX);
         }
         
         return $responseObj;

@@ -15,7 +15,7 @@ class Pfb_Models_TweetButtonModel implements Pfb_Interfaces_Model
     private $referenceUrl;
     
     /**
-     * @since e0.1
+     * @since 0.1
      * @var array
      */
     private $locales = array(
