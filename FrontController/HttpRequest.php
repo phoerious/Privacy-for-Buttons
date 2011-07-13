@@ -119,6 +119,18 @@ class Pfb_FrontController_HttpRequest implements Pfb_Interfaces_Request
     }
     
     /**
+     * Return whether site has been called via an SSL encrypted connection.
+     *
+     * @author Janek Bevendorff
+     * @since 0.1
+     *
+     * @return bool
+     */
+    public function isHttps() {
+        return (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] != 'off');
+    }
+    
+    /**
      * Get complete request URI.
      *
      * @author Janek Bevendorff
@@ -131,7 +143,7 @@ class Pfb_FrontController_HttpRequest implements Pfb_Interfaces_Request
     public function getUri($omitProtocol = false, $omitFileName = false) {
         $uri = '';
         if (!$omitProtocol) {
-            $uri .= empty($_SERVER['HTTPS']) ? 'http://' : 'https://';
+            $uri .= $this->isHttps() ? 'https://' : 'http://';
         }
         $uri .= empty($_SERVER['HTTP_HOST']) ? $_SERVER['SERVER_NAME'] : $_SERVER['HTTP_HOST'];
         $uri .= $omitFileName ? dirname($_SERVER['SCRIPT_NAME']) . '/' : $_SERVER['SCRIPT_NAME'];
