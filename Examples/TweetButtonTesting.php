@@ -9,7 +9,10 @@ require_once 'pfb/API/SocialMediaButtons.php';
 $buttonFactory = new Pfb_API_SocialMediaButtons();
 
 $tweetButton = $buttonFactory->getButton('TweetButton', 'http://www.refining-linux.org/archives/27/20-Multi-line-sed-search-and-replace/');
-Pfb_Config::setConfig('publicApplicationPath', 'http://manko10.dyndns.org:8080/pfb');
+
+// IMPORTANT: set this to your public (!) application path
+// (that is the path the user types into his address bar, not the internal file system path)
+Pfb_Config::setConfig('publicApplicationPath', '/public//path/to/privacy/for/buttons');
 ?>
 <!DOCTYPE html>
 <title>Server-Side API Test</title>
