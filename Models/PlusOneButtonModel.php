@@ -131,10 +131,10 @@ class Pfb_Models_PlusOneButtonModel implements Pfb_Interfaces_Model
     /**
      * Return +1 button background sprite image (raw data, not URL).
      * Returns false on failure.
-     *
+     * 
      * @author Janek Bevendorff
      * @since 0.2
-     *
+     * 
      * @return string | bool
      */
     public function getBackgroundImage() {

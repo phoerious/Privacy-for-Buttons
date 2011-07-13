@@ -97,10 +97,10 @@ class Pfb_Commands_PlusOneButton implements Pfb_Interfaces_Command
         $view->assignVar('lang', $this->lang);
         $view->assignVar('path', $this->request->getPath());
         
-        if (in_array($this->request->getParam('countalign'), array('vertical', 'horizontal', 'none'))) {
+        if (in_array($this->request->getParam('countalign'), array('tall', 'medium', 'standard', 'small'))) {
             $view->assignVar('countAlign', $this->request->getParam('countalign'));
         } else {
-            $view->assignVar('countAlign', 'none');
+            $view->assignVar('countAlign', 'small');
         }
         
         $view->display($this->request, $this->response);
@@ -116,7 +116,7 @@ class Pfb_Commands_PlusOneButton implements Pfb_Interfaces_Command
      */
     protected function loadBgImage() {
         $provider = new Pfb_Provider_HttpProvider();
-        $img = $this->model->getBackgroundImage($this->lang);
+        $img = $this->model->getBackgroundImage();
         
         if (false === $img) {
             $view = new Pfb_FrontController_TemplateView('NotFound');
