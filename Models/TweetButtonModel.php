@@ -174,6 +174,9 @@ class Pfb_Models_TweetButtonModel implements Pfb_Interfaces_Model
      * Hardcoded default cache time is 12 hours. ONLY CHANGE THIS IF REALLY NEEDED!
      * We respect Twitter and therefore we don't want to flood their website.
      *
+     * NOTE: Tokens seem to be always the same. Therefore this method currently
+     * returns static values and doesn't actually fetch anything from Twitter.
+     *
      * @author Janek Bevendorff
      * @since 0.1
      * 
@@ -181,6 +184,23 @@ class Pfb_Models_TweetButtonModel implements Pfb_Interfaces_Model
      * @return void
      */
     protected function refreshTokenSet($cacheTime = 43200) {
+        // since tokens seem to be always the same, use these static ones instead
+        // of calling Twitter. Let's see if this is forever
+        $this->currentTokenSet = array(
+            'en' => 'dfbf1dd98bad9f5b5addd80494650dca',
+            'it' => 'dfbf1dd98bad9f5b5addd80494650dca',
+            'es' => '5be0ba7f2b232a8e61a302d0c2058362',
+            'fr' => '9d531c89ee510e26982dc999404bddf4',
+            'de' => '50586538507186f962a4f53a6d49657a',
+            'ja' => '5019a315326fc162fb7f2fffb0871496',
+            'ko' => '6c19c741ebc8fdceda460706d7ac9ace',
+            'ru' => '9a8165f1c69c2cc7354938892154fc88',
+            'pt' => '0b90ff8d7430a8916a872195262985b1',
+            'tr' => '2aa67c27a2804fbc170330e90e2d43d2'
+        );
+        return;
+        
+        // code for fetching tokens from Twitter – currently we don't need this.
         $provider = new Pfb_Provider_HttpProvider($cacheTime);
         $provider->setObjectSource('http://platform0.twitter.com/widgets/tweet_button.html');
         $resultPage = $provider->requestObject('GET')->getBody();
