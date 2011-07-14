@@ -36,8 +36,8 @@ There are several reasons why you should use Privacy for Buttons:
  * It's small:
    Not only does Privacy for Buttons reduce the number of requests, it also
    reduces the amount of data being transferred. Many buttons are about half the size
-   of the original ones. This also speeds up connections and gives your visitors
-   a better user experience.
+   of the original ones. The Google +1 button is even up to 90% smaller.
+   This speeds up connections and gives your visitors a better user experience.
  * It's flexible:
    Privacy for Buttons is designed to be easily extensible. Besides a Web and
    server-side API for all bundled buttons, you can also extend this
