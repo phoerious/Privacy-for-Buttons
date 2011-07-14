@@ -96,6 +96,7 @@ class Pfb_Commands_PlusOneButton implements Pfb_Interfaces_Command
         $view->assignVar('url', $url);
         $view->assignVar('lang', $this->lang);
         $view->assignVar('path', $this->request->getPath());
+        $view->assignVar('showCounter', (bool)$this->request->getParam('showcounter'));
         
         if (in_array($this->request->getParam('type'), array('tall', 'medium', 'standard', 'small'))) {
             $view->assignVar('type', $this->request->getParam('type'));

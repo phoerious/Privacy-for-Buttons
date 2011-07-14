@@ -10,8 +10,8 @@ html,body,div {margin: 0;padding: 0;}
 <body>
 <div><?php } ?>
     <span class="pfb-plusOneButton pfb-<?php print $this->type; ?>" lang="<?php print $this->lang; ?>">
-    <?php if ($this->type == 'tall' || $this->type == 'medium' || $this->type == 'standard') { ?>
-        <span class="pfb-plusOneButton-counter"><?php print $this->count; ?></span>
+    <?php if ($this->showCounter) { ?>
+        <span class="pfb-plusOneButton-counter"><?php //print $this->count; ?>0<?php if ($this->type != 'tall') { ?><span>&nbsp;</span><?php } ?></span>
     <?php } ?>
         <a<?php if (!$this->buttonOnly) { ?> target="_top"<?php } ?> class="pfb-plusOneButton-button" href="https://twitter.com/share?original_referer=<?php print rawurlencode($this->url); ?>&amp;source=plusOneButton&amp;text=Testpage&amp;url=<?php print rawurlencode($this->url); ?>">
             <span>+1</span>

@@ -8,7 +8,6 @@
 .pfb-plusOneButton {
     display: block;
     position: relative;
-    width: 50px;
 }
 .pfb-plusOneButton-button {
     background: url("<?php print $bgImgPath; ?>") no-repeat -204px 0;
@@ -26,7 +25,7 @@
     background-position: -153px 0;
 }
 
-.pfb-tall .pfb-plusOneButton-counter {
+.pfb-plusOneButton-counter {
     display: block;
     background: url("<?php print $bgImgPath ?>") no-repeat -255px -21px;
     color: #666;
@@ -36,37 +35,99 @@
     padding-top: 6px;
     text-align: center;
 }
-/**
-.pfb-horizontal.pfb-plusOneButton {
-    width: auto;
-    height: 20px;
+
+.pfb-tall .pfb-plusOneButton-button,
+.pfb-tall .pfb-plusOneButton-counter{
+    width: 50px;
 }
-.pfb-horizontal .pfb-plusOneButton-button {
-    float: left;
-    width: 55px;
+
+.pfb-medium .pfb-plusOneButton-button,
+.pfb-standard .pfb-plusOneButton-button,
+.pfb-small .pfb-plusOneButton-button {
+    background-position: -132px -21px;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 32px;
 }
-.pfb-horizontal .pfb-plusOneButton-counter a {
-    background-position: right -145px;
-    display: block;
-    font: bold 12px/20px Arial,sans-serif;
-    height: 20px;
-    margin-right: -8px;
-    min-width: 26px;
-    padding-right: 4px;
-    text-align: center;
-}
-.pfb-horizontal .pfb-plusOneButton-counter:hover, .pfb-horizontal .pfb-plusOneButton-counter:focus, .pfb-horizontal .pfb-plusOneButton-counter:active {
-    background-position: 0 -166px;
-}
-.pfb-horizontal .pfb-plusOneButton-counter a:hover, .pfb-horizontal .pfb-plusOneButton-counter a:focus, .pfb-horizontal .pfb-plusOneButton-counter a:active {
-    background-position: right -166px;
-}
-.pfb-horizontal .pfb-plusOneButton-counter {
-    float: left;
-    height: 20px;
-    left: 58px;
-    padding-left: 8px;
+.pfb-medium .pfb-plusOneButton-counter,
+.pfb-standard .pfb-plusOneButton-counter,
+.pfb-small .pfb-plusOneButton-counter {
+    background-position: -207px -21px;
+    left: 33px;
+    font-size: 14px;
+    height: 14px;
+    margin-bottom: 0;
+    margin-right: 2px;
+    max-width: 45px;
+    min-width: 8px;
+    padding: 3px 6px 3px 12px;
     position: absolute;
     top: 0;
 }
-*/
+.pfb-medium .pfb-plusOneButton-counter span,
+.pfb-standard .pfb-plusOneButton-counter span,
+.pfb-small .pfb-plusOneButton-counter span {
+    background: url("<?php print $bgImgPath ?>") no-repeat -252px -21px;
+    height: 20px;
+    position: absolute;
+    left: 100%;
+    top: 0;
+    width: 2px;
+}
+
+.pfb-medium .pfb-plusOneButton-button:hover, .pfb-medium .pfb-plusOneButton-button:focus {
+    background-position: -165px -21px;
+}
+.pfb-medium .pfb-plusOneButton-button:active {
+    background-position: -99px -21px;
+}
+
+.pfb-standard .pfb-plusOneButton-button {
+    background-position: -156px -58px;
+    height: 24px;
+    width: 38px;
+}
+.pfb-standard .pfb-plusOneButton-button:hover, .pfb-standard .pfb-plusOneButton-button:focus {
+    background-position: -195px -58px;
+}
+.pfb-standard .pfb-plusOneButton-button:active {
+    background-position: -117px -58px;
+}
+.pfb-standard .pfb-plusOneButton-counter {
+    background-position: -235px -58px;
+    height: 14px;
+    max-width: 50px;
+    min-width: 10px;
+    left: 39px;
+    padding: 5px 5px 5px 11px;
+}
+.pfb-standard .pfb-plusOneButton-counter span {
+    background-position: -290px -58px;
+    height: 24px;
+}
+
+.pfb-small .pfb-plusOneButton-button {
+    background-position: -100px -42px;
+    height: 15px;
+    width: 24px;
+}
+.pfb-small .pfb-plusOneButton-counter {
+    background-position: -150px -42px;
+    font-size: 10px;
+    height: 11px;
+    left: 26px;
+    max-width: 35px;
+    min-width: 3px;
+    padding: 2px 5px 2px 10px;
+}
+.pfb-small .pfb-plusOneButton-counter span {
+    background-position: -184px -42px;
+    height: 15px;;
+}
+.pfb-small .pfb-plusOneButton-button:hover, .pfb-small .pfb-plusOneButton-button:focus {
+    background-position: -125px -42px;
+}
+.pfb-small .pfb-plusOneButton-button:active {
+    background-position: -75px -42px;
+}
