@@ -18,6 +18,7 @@ $plusOneButton = $buttonFactory->getButton('PlusOneButton', 'http://www.example.
 <title>+1 Button Testing</title>
 <style type="text/css">
 <?php print $plusOneButton->getButtonCSS(); ?>
+iframe{display:block;margin:1em 0;}
 </style>
 
 <body>
