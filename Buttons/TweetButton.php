@@ -55,9 +55,27 @@ class Pfb_Buttons_TweetButton implements Pfb_Interfaces_Button
     public function setParam($nameOrDAtaArray, $value) {
         if (is_array($nameOrDAtaArray)) {
             foreach ($nameOrDAtaArray as $key => $value) {
+                if ($key == 'type') {
+                    if (in_array($value, array('vertical', 'horizontal', 'none'))) {
+                        $this->params[$key] = $value;
+                    } else {
+                        $this->params[$key] = 'none';
+                    }
+                    continue;
+                }
+                
                 $this->params[$key] = $value;
             }
         } else {
+            if ($nameOrDAtaArray == 'type') {
+                if (in_array($value, array('vertical', 'horizontal', 'none'))) {
+                    $this->params[$nameOrDAtaArray] = $value;
+                } else {
+                    $this->params[$nameOrDAtaArray] = 'none';
+                }
+                return;
+            }
+            
             $this->params[$nameOrDAtaArray] = $value;
         }
     }
@@ -74,10 +92,10 @@ class Pfb_Buttons_TweetButton implements Pfb_Interfaces_Button
         $view = new Pfb_FrontController_TemplateView('TweetButton');
         $view->assignVar('url', $this->params['url']);
         $view->assignVar('lang', $this->params['lang']);
-        $view->assignVar('type', $this->params['type']);
         $view->assignVar('count', $this->model->getCounter());
         $view->assignVar('locales', $this->model->getLocales($this->params['lang']));
         $view->assignVar('buttonOnly', true);
+        $view->assignVar('type', $this->params['type']);
         
         return $view->render();
     }
@@ -93,8 +111,6 @@ class Pfb_Buttons_TweetButton implements Pfb_Interfaces_Button
     public function getButtonCSS() {
         $view = new Pfb_FrontController_TemplateView('TweetButtonCSS');
         $view->assignVar('path', Pfb_Config::getConfig('publicApplicationPath'));
-        $view->assignVar('url', $this->params['url']);
-        $view->assignVar('type', $this->params['type']);
         
         return $view->render();
     }

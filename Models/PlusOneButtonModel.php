@@ -15,51 +15,13 @@ class Pfb_Models_PlusOneButtonModel implements Pfb_Interfaces_Model
     private $referenceUrl;
     
     /**
+     * Currently not implemented
+     * 
      * @since 0.2
      * @var array
+     * @ignore
      */
-    private $locales = array(
-        'en' => array(
-            'title' => 'Twitter For Websites: Tweet Button',
-            'tweet' => 'Tweet',
-        ),
-        'de' => array(
-            'title' => 'Twitter für Webseiten: Tweet-Schaltfläche',
-            'tweet' => 'Twittern',
-        ),
-        'es' => array(
-            'title' => 'Twitter para sitios web: Botón para Twittear',
-            'tweet' => 'Twittear',
-        ),
-        'fr' => array(
-            'title' => 'Twitter pour votre site web : bouton "Tweeter"',
-            'tweet' => 'Tweeter',
-        ),
-        'it' => array(
-            'title' => 'Tweeter per i siti web: Bottone Tweet',
-            'tweet' => 'Tweet',
-        ),
-        'ja' => array(
-            'title' => 'WEBサイト向けTwitter: ツイートボタン',
-            'tweet' => 'ツイートする',
-        ),
-        'ko' => array(
-            'title' => '트위터 웹버전: 트윗 버튼',
-            'tweet' => '트윗',
-        ),
-        'pt' => array(
-            'title' => 'Twitter para websites: Botão de Tweet',
-            'tweet' => 'Tweetar',
-        ),
-        'ru' => array(
-            'title' => 'Твиттер для веб-сайта: кнопка «Твитнуть»',
-            'tweet' => 'Твитнуть',
-        ),
-        'tr' => array(
-            'title' => 'Web siteleri için Twitter: Tweetle Butonu',
-            'tweet' => 'Tweetle',
-        )
-    );
+    private $locales = array();
     
     /**
      * Constructor. Pass the reference URL for which you want the button
@@ -112,19 +74,19 @@ class Pfb_Models_PlusOneButtonModel implements Pfb_Interfaces_Model
     }
     
     /**
+     * Currently not implemented.
+     * 
      * Get array of localized strings for specified language.
      * Returns null if locale does not exist.
      *
      * @author Janek Bevendorff
      * @since 0.2
+     * @ignore
      *
      * @param string $lang
      * @return array | null
      */
     public function getLocales($lang) {
-        if (isset($this->locales[$lang])) {
-            return $this->locales[$lang];
-        }
         return null;
     }
     

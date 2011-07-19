@@ -47,8 +47,8 @@ class Pfb_Commands_PlusOneButton implements Pfb_Interfaces_Command
         $action      = $request->getParam('a');
         $this->model = new Pfb_Models_PlusOneButtonModel($url);
         
-        $this->lang = 'en';
-        if (preg_match('#^[a-z]{2}$#', $request->getParam('lang'))) {
+        $this->lang = 'en-US';
+        if (preg_match('#^[a-z]{2}(\-[A-Z]{2})?$#', $request->getParam('lang'))) {
             $this->lang = $request->getParam('lang');
         }
         
@@ -67,6 +67,10 @@ class Pfb_Commands_PlusOneButton implements Pfb_Interfaces_Command
             switch ($action) {
                 case 'bgimage':
                     $this->loadBgImage();
+                    break;
+                
+                case 'original':
+                    $this->showOriginalButton($url);
                     break;
             }
         } else {
@@ -87,10 +91,6 @@ class Pfb_Commands_PlusOneButton implements Pfb_Interfaces_Command
         $view  = new Pfb_FrontController_TemplateView('PlusOneButton');
         
         $locales = $this->model->getLocales($this->lang);
-        if (null === $locales) {
-            $this->lang = 'en';
-            $locales = $this->model->getLocales($this->lang);
-        }
         $view->assignVar('locales', $locales);
         $view->assignVar('count', $this->model->getCounter());
         $view->assignVar('url', $url);
@@ -133,5 +133,36 @@ class Pfb_Commands_PlusOneButton implements Pfb_Interfaces_Command
         $this->response->addHeader('Content-type', 'image/png');
         $this->response->write($img);
         $this->response->flush();
+    }
+    
+    
+    /**
+     * Show a page with the original button.
+     * This is a nasty workaround because Google doesn't provide a proper
+     * trigger URL for invoking +1. Currently +1 is bound to a valid Google
+     * session (see: bug #3).
+     *
+     * @author Janek Bevendorff
+     * @since 0.2
+     *
+     * @param string $url
+     * @return void
+     */
+    protected function showOriginalButton($url) {
+        $view = new Pfb_FrontController_TemplateView('PlusOneButtonOriginal');
+        
+        $view->assignVar('url', $url);
+        $view->assignVar('lang', $this->lang);
+        $view->assignVar('path', $this->request->getPath());
+        $view->assignVar('showCounter', (bool)$this->request->getParam('showcounter'));
+        $view->assignVar('parentHost', ($this->request->isHttps() ? 'https://' : 'http://') . $this->request->getHost());
+        
+        if (in_array($this->request->getParam('type'), array('tall', 'medium', 'standard', 'small'))) {
+            $view->assignVar('type', $this->request->getParam('type'));
+        } else {
+            $view->assignVar('type', 'small');
+        }
+        
+        $view->display($this->request, $this->response);
     }
 }
