@@ -18,7 +18,9 @@ class Pfb_Buttons_PlusOneButton implements Pfb_Interfaces_Button
         // Button layout
         'type' => 'tall',
         // Button language
-        'lang' => 'en-US'
+        'lang' => 'en-US',
+        // Show +1 counter
+        'showCounter' => true
     );
     
     /**
@@ -39,7 +41,7 @@ class Pfb_Buttons_PlusOneButton implements Pfb_Interfaces_Button
      */
     public function init($referenceUrl) {
         $this->params['url'] = $referenceUrl;
-        $this->model         = new Pfb_Models_TweetButtonModel($referenceUrl);
+        $this->model         = new Pfb_Models_PlusOneButtonModel($referenceUrl);
     }
     
     /**

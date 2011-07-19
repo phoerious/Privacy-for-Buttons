@@ -76,6 +76,9 @@
     width: 2px;
 }
 
+.pfb-medium.pfb-plusOneButton {
+    height: 20px;
+}
 .pfb-medium .pfb-plusOneButton-button:hover, .pfb-medium .pfb-plusOneButton-button:focus {
     background-position: -165px -21px;
 }
@@ -83,6 +86,9 @@
     background-position: -99px -21px;
 }
 
+.pfb-standard.pfb-plusOneButton {
+    height: 24px;
+}
 .pfb-standard .pfb-plusOneButton-button {
     background-position: -156px -58px;
     height: 24px;
@@ -107,6 +113,9 @@
     height: 24px;
 }
 
+.pfb-small.pfb-plusOneButton {
+    height: 15px;
+}
 .pfb-small .pfb-plusOneButton-button {
     background-position: -100px -42px;
     height: 15px;

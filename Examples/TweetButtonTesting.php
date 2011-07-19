@@ -1,29 +1,33 @@
 <?php
-ini_set('display_errors', true);
-error_reporting(E_ALL | E_STRICT);
+ini_set('display_errors', false);
+error_reporting(0);
 
 header('Content-Type: text/html; charset=utf-8');
 ini_set('zlib.output_compression', true);
 
-require_once 'pfb/API/SocialMediaButtons.php';
+require_once '../API/SocialMediaButtons.php';
 $buttonFactory = new Pfb_API_SocialMediaButtons();
 
-$tweetButton = $buttonFactory->getButton('TweetButton', 'http://www.refining-linux.org/archives/27/20-Multi-line-sed-search-and-replace/');
+$tweetButton = $buttonFactory->getButton('TweetButton', 'http://www.example.com/');
 
 // IMPORTANT: set this to your public (!) application path
 // (that is the path the user types into his address bar, not the internal file system path)
-Pfb_Config::setConfig('publicApplicationPath', '/public//path/to/privacy/for/buttons');
+// Pfb_Config::setConfig('publicApplicationPath', '/public//path/to/privacy/for/buttons');
 ?>
 <!DOCTYPE html>
-<title>Server-Side API Test</title>
+<title>Tweet Button Testing</title>
 <style type="text/css">
 <?php print $tweetButton->getButtonCSS(); ?>
+iframe{display:block;margin:1em 0;}
 </style>
 
 <body>
 <h1>Server-Side API Test:</h1>
 <div>
-    <p><em>Button valid for URL <strong>http://www.refining-linux.org/archives/27/20-Multi-line-sed-search-and-replace/</strong></em></p>
+    <?php if (!Pfb_Config::getConfig('publicApplicationPath')) { ?>
+        <p style="color: #900; font-weight: bold;">You need to set <em>'publicApplicationPath'</em>!</p>
+    <?php } ?>
+    <p><em>Button valid for URL <strong>http://www.example.com/</strong></em></p>
     <p>This is my beautiful button:</p>
     <?php
         $tweetButton->setParam('lang', 'en');
@@ -62,7 +66,7 @@ Pfb_Config::setConfig('publicApplicationPath', '/public//path/to/privacy/for/but
 <h1>Iframe Web API Test:</h1>
 <div>
     <p>Finally all three variants in an Iframe via Web API:</p>
-    <iframe style="border: none; height: 62px; width: 55px;" src="http://manko10.dyndns.org:8080/pfb?c=TweetButton&amp;url=http://www.refining-linux.org/archives/27/20-Multi-line-sed-search-and-replace/&amp;type=vertical"></iframe>
-    <iframe style="border: none; height: 20px; width: 110px;" src="http://manko10.dyndns.org:8080/pfb?c=TweetButton&amp;url=http://www.refining-linux.org/archives/27/20-Multi-line-sed-search-and-replace/&amp;type=horizontal"></iframe>
-    <iframe style="border: none; height: 20px; width: 55px;" src="http://manko10.dyndns.org:8080/pfb?c=TweetButton&amp;url=http://www.refining-linux.org/archives/27/20-Multi-line-sed-search-and-replace/&amp;type=none"></iframe>
+    <iframe style="border: none; height: 62px; width: 55px;" src="../?c=TweetButton&amp;url=http://www.example.com/&amp;type=vertical"></iframe>
+    <iframe style="border: none; height: 20px; width: 110px;" src="../?c=TweetButton&amp;url=http://www.example.com/&amp;type=horizontal"></iframe>
+    <iframe style="border: none; height: 20px; width: 55px;" src="../?c=TweetButton&amp;url=http://www.example.com/&amp;type=none"></iframe>
 </div>
