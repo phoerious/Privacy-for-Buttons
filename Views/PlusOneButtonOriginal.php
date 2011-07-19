@@ -35,12 +35,10 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <style type="text/css">
 html,body,div {margin: 0;padding: 0;}
-/*<![CDATA[*/
 iframe{border:none;display:block;margin:2em auto;height:<?php print $height; ?>;width:<?php print $width; ?>;}
 #Intro{color:#666;font:bold 15px Arial,Helvetica,sans-serif;margin:4em 0 2em 0;text-align:center;}
 #Close{margin:1em;text-align:center;}
 noscript{font:bold 15px Arial,Helvetica,sans-serif;margin:1em auto;border:2px solid #900;display:block;padding:1em;text-align:center;width:80%;}
-/*]]>*/
 </style>
 <body>
 <div>

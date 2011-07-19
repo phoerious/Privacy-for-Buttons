@@ -3,9 +3,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <style type="text/css">
 html,body,div {margin: 0;padding: 0;}
-/*<![CDATA[*/
 <?php print $this->render('PlusOneButtonCSS'); ?>
-/*]]>*/
 </style>
 <body>
 <div><?php } ?>
