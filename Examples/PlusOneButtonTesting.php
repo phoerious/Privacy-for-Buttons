@@ -12,7 +12,7 @@ $plusOneButton = $buttonFactory->getButton('PlusOneButton', 'http://www.example.
 
 // IMPORTANT: set this to your public (!) application path
 // (that is the path the user types into his address bar, not the internal file system path)
-// Pfb_Config::setConfig('publicApplicationPath', '/public//path/to/privacy/for/buttons');
+// Pfb_Config::setConfig('publicApplicationPath', '/public/path/to/privacy/for/buttons');
 ?>
 <!DOCTYPE html>
 <title>+1 Button Testing</title>
