@@ -46,16 +46,6 @@ There are several reasons why you should use Privacy for Buttons:
    hooked in automatically.
 
 
-Requirements:
-=============
- * PHP 5.2.0
- * HTTP_Request2 (PEAR)
- * NET_URL2 (PEAR)
- * curl extension (optional)
- * zlib extension (optional)
- * openssl extension (optional)
-
-
 Usage:
 ======
 Privacy for Buttons let's you either include the buttons via Web API for use in
